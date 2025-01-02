@@ -1,0 +1,23 @@
+@use "../styles/variables.scss" as vars;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Montserrat";
+    color: vars.$color_black;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("../assets/fonts/Montserrat-Light.ttf");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url("../assets/fonts/Montserrat-Medium.ttf");
+    font-weight: 500;
+}
+

@@ -1,0 +1,58 @@
+@use "../../styles/variables.scss" as vars;
+
+.wrapper {
+    width: 100%;
+    padding: vars.$padding_x;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.registration {
+    background-color: vars.$color_black;
+    background-color: #bad6eb;
+    border-radius: 20px;
+    width: 50%;
+    min-width: 300px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.name_surname {
+    display: flex;
+    gap: 40px;
+
+    &>input {
+        width: 50%;
+    }
+}
+
+.registration_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 350px;
+    margin-top: 20px;
+}
+.field{
+    width: 100%;
+}
+
+.btn {
+    width: 100px;
+}
+
+
+
+@media (max-width:768px) {
+    .name_surname {
+        flex-direction: column;
+    }
+}
