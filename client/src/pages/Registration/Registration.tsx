@@ -11,7 +11,11 @@ export const Registration = () => {
 
     const handleSignUp = (data:FieldValues) => {
         registration(data as IUserData)
-        .then(res => console.log(res))
+        .then(res => {
+            if(res.status == "ok"){
+                reset()
+            }
+        })
     }
 
     return (
@@ -50,6 +54,10 @@ export const Registration = () => {
                         />
                         <Button variant="contained" className={styles.btn} type='submit'>Sign Up</Button>
                     </form>
+                    <div className={styles.login}>
+                        <p>Already have an account?</p>
+                        <a href="/login">Sign In</a>
+                    </div>
                 </Box>
             </div>
         </div>

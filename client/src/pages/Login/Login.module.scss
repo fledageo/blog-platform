@@ -8,7 +8,6 @@
     padding: vars.$padding_x;
 }
 
-
 .container {
     width: 100%;
     display: flex;
@@ -28,21 +27,14 @@
     gap: 20px;
 }
 
-.name_surname {
-    display: flex;
-    gap: 40px;
-
-    &>input {
-        width: 50%;
-    }
-}
-
 .registration_form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    max-width: 350px;
+    width: 100%;
+    max-width: 300px;
+    min-width: 200px;
     margin-top: 20px;
 }
 .field{
@@ -52,11 +44,11 @@
 .btn {
     width: 100px;
 }
-
-.login {
+.newUser{
     display: flex;
     gap: 10px;
 }
+
 
 @media (max-width:768px) {
     .name_surname {

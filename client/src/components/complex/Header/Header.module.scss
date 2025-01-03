@@ -1,5 +1,52 @@
 @use "../../../styles/variables.scss" as vars;
 
 .wrapper {
-    padding: vars.$padding_x;
+    padding: 30px vars.$padding_x;
+    background-color: #bad6eb;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.column {
+    width: 30%;
+    display: flex;
+
+    &:nth-child(1) {
+        justify-content: start;
+    }
+
+    &:nth-child(2) {
+        justify-content: center;
+    }
+
+    &:nth-child(3) {
+        justify-content: end;
+    }
+}
+
+.menu_list {
+    display: flex;
+    gap: 30px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sign_up {
+    background-color: #ffdc5f;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: #f5c400;
+    }
 }

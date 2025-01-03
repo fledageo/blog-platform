@@ -9,7 +9,13 @@ body {
     font-family: "Montserrat";
     color: vars.$color_black;
 }
-
+ul,li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: vars.$color_black;
+}
 @font-face {
     font-family: "Montserrat";
     src: url("../assets/fonts/Montserrat-Light.ttf");
