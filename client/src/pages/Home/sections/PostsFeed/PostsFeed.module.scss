@@ -1,0 +1,19 @@
+@use "./../../../../styles/variables.scss" as vars;
+
+.wrapper {
+    padding: 100px vars.$padding_x;
+    display: flex;
+}
+.container{
+    
+}
+.title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+.posts {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 50px;
+}

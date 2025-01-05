@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router'
 export const Login = () => {
     const { register, formState: { errors }, reset, handleSubmit } = useForm()
     const navigate = useNavigate()
-
+    
     const handleLogin = (data: FieldValues) => {
         login(data)
             .then(res => {

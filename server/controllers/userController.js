@@ -33,11 +33,11 @@ class AuthController {
         if (found) {
             const isValidPassword = await bcrypt.compare(userData.password, found.password)
             if (isValidPassword) {
-                const token = jwt.sign({userId:found._id},JWT_SECRET,{expiresIn:"60m"})
+                const token = jwt.sign({ userId: found._id }, JWT_SECRET, { expiresIn: "60m" })
                 res.cookie('token', token, {
                     maxAge: 60 * 60 * 1000,
                 });
-                res.send({status:"ok",message:"Successfuly"})
+                res.send({ status: "ok", message: "Successfuly" })
             } else {
                 res.send({ status: "error", message: "Password is not valid" })
             }
@@ -45,19 +45,32 @@ class AuthController {
             res.send({ status: "error", message: "Email is not valid" })
         }
     }
-    async verifyAuth(req,res) {
+    async verifyAuth(req, res) {
         const token = req.cookies.token
-        if(!token){
-            return res.send({status:"error",message:"Access denied!"})
+        if (!token) {
+            return res.send({ status: "error", message: "Access denied!" })
         }
-        
-        try {   
-            jwt.verify(token,JWT_SECRET)
-            res.send({status:"ok",message:"Access allowed"})
+
+        try {
+            const decoded = jwt.verify(token, JWT_SECRET)
+            res.send({ status: "ok", message: "Access allowed", payload: decoded.userId })
 
         } catch (error) {
             res.clearCookie("token")
-            res.send({status:"error",message:"Access denied!"})
+            res.send({ status: "error", message: "Access denied!" })
+        }
+    }
+    async getUserById(req, res) {
+        const userId = req.params.id
+        try {
+            const user = await User.findById(userId)
+            if (user) {
+                res.send({ status: "ok", payload: user })
+            } else {
+                res.send({ status: "error", message: "No such user" })
+            }
+        } catch (error) {
+            console.log(error)
         }
     }
 }

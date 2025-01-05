@@ -7,6 +7,7 @@ import { Layout } from "./components/complex/Layout/Layout"
 import { Registration } from "./pages/Registration/Registration"
 import { Login } from "./pages/Login/Login"
 import { store } from "./store/store"
+import { AddPost } from "./pages/AddPost/AddPost"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />
+      },
+      {
+        path: "/post/add",
+        element: <AddPost/>
       }
     ]
   }

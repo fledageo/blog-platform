@@ -1,18 +1,24 @@
 import { createReducer } from "@reduxjs/toolkit"
-import { updateAuth } from "../actions/userActions"
+import { setCurrentUser, updateAuth } from "../actions/userActions"
+import { IUserData } from "../../lib/types"
 
 interface IState {
     isAuth:boolean
+    currentUser:IUserData | null
 }
 
 const initialState:IState = {
-    isAuth:false
+    isAuth:false,
+    currentUser: null,
 }
 
 const userReducer = createReducer(initialState, builder => {
     builder
         .addCase(updateAuth,(state,action) => {
             state.isAuth = action.payload
+        })
+        .addCase(setCurrentUser,(state,action) => {
+            state.currentUser = action.payload
         })
 })
 

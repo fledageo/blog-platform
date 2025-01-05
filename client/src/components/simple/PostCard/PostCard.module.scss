@@ -1,0 +1,21 @@
+@use "../../../styles/variables.scss" as vars;
+
+.card {
+    width: 400px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.postContent{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.title {
+    color: vars.$color_black;
+}
+.content{
+    color: vars.$color_grey;
+    word-wrap: break-word;
+}

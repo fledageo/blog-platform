@@ -1,6 +1,8 @@
 import e from "express";
-import { authRouter } from "./authRoutes.js"; 
+import { userRouter } from "./userRoutes.js"; 
+import { postRouter } from "./postRoutes.js";
 
 export const mainRouter = e.Router()
 
-mainRouter.use("/auth",authRouter)  
+mainRouter.use("/user",userRouter)  
+mainRouter.use("/posts",postRouter)  
