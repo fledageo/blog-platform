@@ -1,0 +1,38 @@
+@use "../../../styles/variables.scss" as vars;
+
+.wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(58, 57, 57, 0.712);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 50%;
+    min-width: 500px;
+    height: 80%;
+    background-color: vars.$color-white;
+    border-radius: 15px;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-bottom: 1px solid;
+}
+
+.edit{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    gap: 10px;
+}
+.field {
+    width: 100%;
+}

@@ -9,7 +9,6 @@ import { setCurrentUser, updateAuth } from '../../../store/actions/userActions';
 export const Header = () => {
   const isAuth = useAppSelector(state => state.user.isAuth)
   const dispatch = useAppDispatch()
-  const path = useLocation().pathname
 
   useEffect(() => {
     verifyAuth()
@@ -45,7 +44,7 @@ export const Header = () => {
         </div>
         <div className={styles.column}>
           {
-            (!isAuth && path == "/") ?
+            (!isAuth) ?
               <div className={styles.actions}>
                 <a href="/login">Log In</a>
                 <a href="/registration" className={styles.sign_up}>Sign Up</a>

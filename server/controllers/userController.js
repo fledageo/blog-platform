@@ -37,7 +37,7 @@ class AuthController {
                 res.cookie('token', token, {
                     maxAge: 60 * 60 * 1000,
                 });
-                res.send({ status: "ok", message: "Successfuly" })
+                res.send({ status: "ok", message: "Successfuly", payload:found._id })
             } else {
                 res.send({ status: "error", message: "Password is not valid" })
             }

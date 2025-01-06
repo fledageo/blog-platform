@@ -5,15 +5,16 @@
     display: flex;
 }
 .container{
-    
+    width: 100%;
 }
 .title {
     font-size: 2rem;
     margin-bottom: 40px;
 }
 .posts {
-    display: flex;
-    justify-content: start;
-    flex-wrap: wrap;
-    gap: 50px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    gap: 30px;
+    justify-content: space-between;
 }

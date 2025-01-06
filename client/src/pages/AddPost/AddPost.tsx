@@ -2,20 +2,30 @@ import { Button, TextField } from '@mui/material'
 import styles from './AddPost.module.scss'
 import { FieldValues, useForm } from 'react-hook-form'
 import { useAppSelector } from '../../store/store'
-import { addPost } from '../../lib/api'
+import { addPost, verifyAuth } from '../../lib/api'
 import { IPost } from '../../lib/types'
 import { useNavigate } from 'react-router'
+import { useEffect } from 'react'
 
 export const AddPost = () => {
     const currentUser = useAppSelector(state => state.user.currentUser)
     const { register, handleSubmit } = useForm()
     const navigate = useNavigate()
+    
+    useEffect(() => {
+        verifyAuth()
+            .then(res => {
+                if (res.status !== "ok") {
+                    navigate("/registration")   
+                }
+            })
+    }, [])
 
     const handleShare = (data: FieldValues) => {
         const post = { ...data, author: currentUser } as IPost
         addPost(post)
             .then(res => {
-                if(res.status == "ok"){
+                if (res.status == "ok") {
                     navigate("/")
                 }
             })

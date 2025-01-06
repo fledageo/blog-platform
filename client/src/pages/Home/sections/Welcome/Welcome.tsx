@@ -5,15 +5,8 @@ import { useAppSelector } from '../../../../store/store';
 import { useNavigate } from 'react-router';
 
 export const Welcome = () => {
-    const isAuth = useAppSelector(state => state.user.isAuth)
     const navigate = useNavigate()
-    const handleAction = () => {
-        if(!isAuth){
-            navigate("/registration")
-        }else{
-            navigate("/post/add")            
-        }
-    }
+    
     return (
         <section className={styles.welcome}>
             <div className={styles.container}>
@@ -26,7 +19,7 @@ export const Welcome = () => {
                         Id voluptatem quia, quam rerum a voluptas dicta ratione necessitatibus aperiam nulla!
                     </p>
                 </div>
-                <Button className={styles.action} variant='contained' onClick={handleAction}>
+                <Button className={styles.action} variant='contained' onClick={() => navigate("post/add")}>
                     Share your thinking
                     <FaLongArrowAltRight className={styles.actionIcon}/>
                 </Button>

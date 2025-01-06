@@ -32,3 +32,18 @@ export const getUserById = async (id:string):Promise<IResponse> => {
     const response = await Axios.get(`/user/${id}`)
     return response.data
 }
+
+export const getPostById = async (id:string):Promise<IResponse> => {
+    const response = await Axios.get(`/posts/${id}`)
+    return response.data
+}
+
+export const deletePostById = async(id:string):Promise<IResponse> => {
+    const response = await Axios.delete(`/posts/${id}`)
+    return response.data
+}
+
+export const updateById = async(id:string,update:Partial<IPost>):Promise<IResponse> => {
+    const response = await Axios.put(`/posts/${id}`,update)
+    return response.data
+}

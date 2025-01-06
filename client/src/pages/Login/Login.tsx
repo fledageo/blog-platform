@@ -3,15 +3,19 @@ import styles from './Login.module.scss'
 import { FieldValues, useForm } from 'react-hook-form'
 import { login } from '../../lib/api'
 import { useNavigate } from 'react-router'
+import { useAppDispatch } from '../../store/store'
+import { setCurrentUser, updateAuth } from '../../store/actions/userActions'
 
 export const Login = () => {
     const { register, formState: { errors }, reset, handleSubmit } = useForm()
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
-    
     const handleLogin = (data: FieldValues) => {
         login(data)
             .then(res => {
                 if (res.status === "ok") {
+                    dispatch(updateAuth(true))
+                    dispatch(setCurrentUser(res.payload))
                     reset()
                     navigate("/")
                 }

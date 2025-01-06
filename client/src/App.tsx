@@ -8,6 +8,7 @@ import { Registration } from "./pages/Registration/Registration"
 import { Login } from "./pages/Login/Login"
 import { store } from "./store/store"
 import { AddPost } from "./pages/AddPost/AddPost"
+import { FullPost } from "./pages/FullPost/FullPost"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/post/add",
         element: <AddPost/>
+      },
+      {
+        path: "/post/:id",
+        element: <FullPost/>
       }
     ]
   }
