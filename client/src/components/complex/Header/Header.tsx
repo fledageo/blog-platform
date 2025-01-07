@@ -50,7 +50,7 @@ export const Header = () => {
                 <a href="/registration" className={styles.sign_up}>Sign Up</a>
               </div>
               :
-              <FaRegUserCircle size={30}/>
+              <FaRegUserCircle  className={styles.userLogo}/>
           }
         </div>
       </div>

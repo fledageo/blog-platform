@@ -1,7 +1,6 @@
 import { Button } from '@mui/material'
 import styles from './Welcome.module.scss'
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { useAppSelector } from '../../../../store/store';
 import { useNavigate } from 'react-router';
 
 export const Welcome = () => {
@@ -20,7 +19,7 @@ export const Welcome = () => {
                     </p>
                 </div>
                 <Button className={styles.action} variant='contained' onClick={() => navigate("post/add")}>
-                    Share your thinking
+                    <span>Share</span>
                     <FaLongArrowAltRight className={styles.actionIcon}/>
                 </Button>
             </div>

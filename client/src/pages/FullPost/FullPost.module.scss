@@ -3,20 +3,20 @@
 
 .wrapper {
     padding: 50px vars.$padding_x;
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
 }
 
 .container{
     display: flex;
-    height: 100%;
     justify-content: center;
     gap: 20px;
 }
 .column_1{
     width: 60%;
+    min-height: 500px;
     padding: 20px 50px;
     background-color: #979dac44;
-    min-height: 100%;
+    height: 100%;
 }
 .column_2{
     width: 20%;

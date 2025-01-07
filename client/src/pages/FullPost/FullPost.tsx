@@ -12,11 +12,14 @@ import { EditModal } from '../../components/complex/EditModal/EditModal'
 
 export const FullPost = () => {
     const [post, setPost] = useState<IPost | null>(null)
-    const [openEdit,setOpenEdit] = useState<boolean>(false)
+    const [openEdit, setOpenEdit] = useState<boolean>(false)
+
+    const isAuth = useAppSelector(state => state.user.isAuth)
+    const currentUser = useAppSelector(state => state.user.currentUser)
 
     const all = useAppSelector(state => state.posts.all)
     const dispatch = useAppDispatch()
-    
+
     const { id } = useParams()
     const navigate = useNavigate()
 
@@ -38,20 +41,19 @@ export const FullPost = () => {
 
     const handleDelete = () => {
         deletePostById(post?._id as string)
-        .then(res => {
-            if(res.status == "ok"){
-               navigate("/")
-            }
-        })
+            .then(res => {
+                if (res.status == "ok") {
+                    navigate("/")
+                }
+            })
     }
 
-   console.log(post)
-    const handleEdit = (values:Partial<IPost>) => {
-        updateById(post?._id as string,values)
-        .then(res => {
-            setOpenEdit(false)
-            setPost(res.payload)
-        })
+    const handleEdit = (values: Partial<IPost>) => {
+        updateById(post?._id as string, values)
+            .then(res => {
+                setOpenEdit(false)
+                setPost(res.payload)
+            })
     }
 
 
@@ -68,13 +70,17 @@ export const FullPost = () => {
                                     </Avatar>
                                     <span>{`${post?.author.name} ${post?.author.surname}`}</span>
                                 </div>
-                                <div className={styles.actions}>
-                                    <MdModeEditOutline size={20} onClick={() => setOpenEdit(true)}/>
-                                    <MdDeleteOutline size={20} onClick={handleDelete} />
-                                </div>
-                                    {
-                                        openEdit && <EditModal edit={openEdit} setEdit={setOpenEdit} post={post} handleEdit={handleEdit}/>
-                                    }
+                                {
+                                    (isAuth && currentUser == post.author._id) &&
+                                    <div className={styles.actions}>
+                                        <MdModeEditOutline size={20} onClick={() => setOpenEdit(true)} />
+                                        <MdDeleteOutline size={20} onClick={handleDelete} />
+                                    </div>
+
+                                }
+                                {
+                                    openEdit && <EditModal edit={openEdit} setEdit={setOpenEdit} post={post} handleEdit={handleEdit} />
+                                }
                             </div>
                             <div className={styles.header}>
                                 <h1 className={styles.title}>

@@ -49,6 +49,7 @@ export const Registration = () => {
                         <TextField
                             label="Password"
                             variant="standard"
+                            type='password'
                             {...register("password", { required: "Please fill the required field" })}
                             className={styles.field}
                         />
